@@ -2,6 +2,7 @@
 
 import { useActionState } from 'react'
 import {ApplicationFormState, submitApplication} from "@/actions/submitForm";
+import {useApplicationHistoricStore} from "@/store/jobsApplicationHistoric";
 
 type ApplicationFormProps = {
     jobUID: string
@@ -14,6 +15,11 @@ const initialState: ApplicationFormState = {
 
 export default function ApplicationForm({jobUID}: ApplicationFormProps) {
     const [state, formAction, isPending] = useActionState(submitApplication, initialState,);
+    const addHistoric = useApplicationHistoricStore((state) => state.addApplication);
+
+    if(state.status === 'success') {
+        addHistoric(jobUID);
+    }
 
     return (
         <form

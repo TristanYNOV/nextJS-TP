@@ -1,5 +1,6 @@
 import {getProfilPageFromPrismic} from "@/libs/prismicClient";
 import SavedArticles from "@/app/profil/_components/savedArticles";
+import HistoricPost from "@/app/profil/_components/historicPost";
 
 export default async function ProfilPage() {
     const page = await getProfilPageFromPrismic();
@@ -18,6 +19,7 @@ export default async function ProfilPage() {
 
                 <div className="flex flex-col gap-2">
                     <h2 className="primary-text text-xl mb-2">{pageInfo.subtitle_2}</h2>
+                    <HistoricPost/>
                 </div>
             </main>
         </div>

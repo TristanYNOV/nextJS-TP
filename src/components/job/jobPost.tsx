@@ -7,7 +7,7 @@ import SavingPost from "@/components/Bookmark/bookmark";
 export default function JobPost({job}: {job: PostPageDocument}) {
     const jobInfo = job.data;
     return (
-        <article className="h-64 px-2 py-4 bg-white dark-text flex flex-col gap-3">
+        <article className="h-64 px-2 py-4 bg-white dark-text flex flex-col gap-3 overflow-hidden">
             <div className="flex justify-between items-center ">
                 <Link href={`/job/${job.uid}`}>
                     <h3 className="font-bold text-xl">{jobInfo.title}</h3>

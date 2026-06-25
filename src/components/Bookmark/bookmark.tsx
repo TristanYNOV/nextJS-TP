@@ -23,7 +23,7 @@ export default function SavingPost({post}: {post: PostPageDocument}) {
     }
 
     return ( mounted &&
-        <button onClick={handlePin}>
+        <button onClick={handlePin} className="cursor-pointer">
             { isAlreadyPin ? <BookmarkIcon/> : <BookmarkBorderIcon/>}
         </button>
     )

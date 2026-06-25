@@ -26,7 +26,7 @@ export default function ApplicationForm({jobUID}: ApplicationFormProps) {
             action={formAction}
             className="mt-4 flex flex-col gap-2">
             <input type="hidden" name="jobUID" value={jobUID}/>
-            <label htmlFor="application-message">Votre message</label>
+            <label htmlFor="application-message">Vous êtes intéressés ? Ecrivez-nous !</label>
 
             <textarea
                 id="application-message"

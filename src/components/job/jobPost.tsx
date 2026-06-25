@@ -1,8 +1,8 @@
 import {PostPageDocument} from "../../../prismicio-types";
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import Link from "next/link";
+import SavingPost from "@/components/Bookmark/bookmark";
 
 export default function JobPost({job}: {job: PostPageDocument}) {
     const jobInfo = job.data;
@@ -12,7 +12,7 @@ export default function JobPost({job}: {job: PostPageDocument}) {
                 <Link href={`/job/${job.uid}`}>
                     <h3 className="font-bold text-xl">{jobInfo.title}</h3>
                 </Link>
-                <BookmarkBorderIcon/>
+                <SavingPost post={job}/>
             </div>
             <div className="flex gap-2 items-center primary-text">
                 <CalendarMonthIcon/>

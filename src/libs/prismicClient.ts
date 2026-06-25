@@ -34,5 +34,3 @@ export async function getAllTagsFromPrismic() {
 export async function getJobsListByTag(tag: string) {
     return client.getAllByTag(tag);
 }
-
-

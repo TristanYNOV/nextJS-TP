@@ -31,9 +31,7 @@ export default async function ListPage() {
             </div>
             <main className="h-[75%] overflow-y-auto grid grid-cols-3 gap-2">
                 {jobsPostDocList.map(doc => (
-                    <Link href={doc.uid} key={doc.id}>
                         <JobPost job={doc} />
-                    </Link>
                 ))}
             </main>
         </div>

@@ -2,15 +2,18 @@ import {PostPageDocument} from "../../../prismicio-types";
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
+import Link from "next/link";
 
 export default function JobPost({job}: {job: PostPageDocument}) {
     const jobInfo = job.data;
     return (
-        <article className="px-2 py-4 bg-white dark-text flex flex-col gap-3">
-            <h3 className="flex justify-between items-center ">
-                <span className="font-bold text-xl">{jobInfo.title}</span>
+        <article className="h-64 px-2 py-4 bg-white dark-text flex flex-col gap-3">
+            <div className="flex justify-between items-center ">
+                <Link href={`/job/${job.uid}`}>
+                    <h3 className="font-bold text-xl">{jobInfo.title}</h3>
+                </Link>
                 <BookmarkBorderIcon/>
-            </h3>
+            </div>
             <div className="flex gap-2 items-center primary-text">
                 <CalendarMonthIcon/>
                 <span>
@@ -22,13 +25,15 @@ export default function JobPost({job}: {job: PostPageDocument}) {
                 <UnfoldMoreIcon className="rotate-90"/>
                 <ul className="flex gap-2">
                     {job.tags.map(tag => (
-                        <li key={tag}>{tag}</li>
+                        <Link href={`/tags/${tag}`} key={tag}>
+                            <li>{tag}</li>
+                        </Link>
                     ))}
                 </ul>
             </div>
-            <span className="text-wrap">
+            <span className="text-ellipsis">
                 {jobInfo.job_description}
             </span>
         </article>
-    )
+    );
 }

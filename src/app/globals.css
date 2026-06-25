@@ -11,9 +11,9 @@
     --gray-color: #f0f0f0;
     --dark-color: #0C0C0C;
     --primary-color: #2175D9;
-    --primary-color-hover: #1d64ba;
+    --primary-hover-color: #1d64ba;
     --secondary-color: #0F1941;
-    --secondary-color-hover: #090f29;
+    --secondary-hover-color: #090f29;
 }
 
 body {

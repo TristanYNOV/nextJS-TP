@@ -199,6 +199,21 @@ export type ListPageDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Post Page → Emails*
+ */
+export interface PostPageDocumentDataEmailsItem {
+  /**
+   * Email field in *Post Page → Emails*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: email@email.fr
+   * - **API ID Path**: post_page.emails[].email
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  email: prismic.KeyTextField;
+}
+
 type PostPageDocumentDataSlicesSlice = never;
 
 /**
@@ -237,6 +252,17 @@ interface PostPageDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/date
    */
   job_date: prismic.DateField;
+
+  /**
+   * Emails field in *Post Page*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: post_page.emails[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  emails: prismic.GroupField<Simplify<PostPageDocumentDataEmailsItem>>;
 
   /**
    * Slice Zone field in *Post Page*
@@ -430,6 +456,7 @@ declare module "@prismicio/client" {
       ListPageDocumentDataSlicesSlice,
       PostPageDocument,
       PostPageDocumentData,
+      PostPageDocumentDataEmailsItem,
       PostPageDocumentDataSlicesSlice,
       ProfilPageDocument,
       ProfilPageDocumentData,

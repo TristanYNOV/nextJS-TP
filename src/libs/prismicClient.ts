@@ -7,7 +7,7 @@ export async function getAllJobPostFromPrismic() {
     return client.getAllByType('post_page');
 }
 
-export async function getJobByTFromPrismic(uid: string) {
+export async function getJobByUIDFromPrismic(uid: string) {
     return client.getByUID('post_page',uid);
 }
 
